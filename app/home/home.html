@@ -1,0 +1,14 @@
+<div class="jumbotron">
+    <form class="form-create">
+        <h2 class="form-create-heading">Create your bucketlist</h2>
+        <label for="inputName" class="sr-only">Name</label>
+        <input ng-model="title" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br />
+    </form>
+    <div class="alert alert-success alert-dismissable" ng-show="msg">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ msg }}</strong>
+    </div>
+    <center>
+     <button ng-click="postdata(title)" class="btn btn-lg btn-success" type="submit">Create</button>
+    </center>
+</div>
