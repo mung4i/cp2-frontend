@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br />
+    <div class="checkbox">
+      <label>
+      <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <center>
+    <button ng-click="postdata(email, password)" class="btn btn-lg btn-success" type="submit">Sign in</button>
+    </center>
+  </form>
+</div>
