@@ -1,0 +1,17 @@
+    <div ng-controller="ViewCtrl" class="jumbotron">
+        <div ng-repeat="list in bucketlist" class="panel panel-success">
+            <div class="panel-heading">
+            <h3 class="panel-title">How many have you crossed off?</h3></div>
+                <div class="panel-body">
+                    <li class="list-group-item">id: {{ list.id }}</li>
+                    <li class="list-group-item">title: {{list.title}}</li>
+                    <li class="list-group-item">Date created: {{list.date_created}}</li>
+                    <li class="list-group-item">Date modified: {{list.date_modified}}</li>
+                </div>
+                
+        </div>
+        <div class="btn-group" role="group" aria-labelledby="...">
+            <button ng-click="getdata(prev_url)" class="btn btn-lg btn-success">Prev</button>
+            <button ng-click="getdata(next_url)" class="btn btn-lg btn-success">Next</button>
+        </div>
+    </div>
