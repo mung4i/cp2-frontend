@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+body{
+    background-color: black;
+}
+.navlinks{
+    color: #16a085;
+}
+.jumbotron{
+    background-color: whitesmoke;
+    color: #16a085;
+}
+footer{
+    color: whitesmoke;
+}
