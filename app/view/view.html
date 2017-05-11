@@ -1,6 +1,14 @@
     <div ng-controller="ViewCtrl" class="jumbotron">
+        
         <div ng-repeat="list in bucketlist" class="panel panel-success">
+            <div class="input-group">
+                <input ng-model="searchparams" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button ng-click="searchdata(searchparams)" class="btn btn-default" type="button">Search</button>
+                </span>
+            </div>
             <div class="panel-heading">
+                
             <h3 class="panel-title">How many have you crossed off?</h3></div>
                 <div class="panel-body">
                     <li class="list-group-item">id: {{ list.id }}</li>
@@ -8,10 +16,68 @@
                     <li class="list-group-item">Date created: {{list.date_created}}</li>
                     <li class="list-group-item">Date modified: {{list.date_modified}}</li>
                 </div>
+                <div class="panel-footer">   
+                    <button type="button" class="btn btn-sm btn-success" data-target="#createModal" data-toggle="modal"> Create Item </button>
+
+                    <button type="button" class="btn btn-sm btn-success" data-target="#editModal" data-toggle="modal">Edit</button>
+
+                    <button ng-click="deletedata(list.id)" class="btn btn-sm btn-danger">Delete</button>
+
+                    <!-- Create Modal -->
+
+                    <div id="createModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Create bucketlist item</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="inputName" class="sr-only">Item Name</label>
+                                    <input ng-model="name" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br />
+                                </div>
+                                <div class="modal-footer">
+                                    <button ng-click="" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edit Modal -->
+                    <div id="editModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Edit bucketlist</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="inputName" class="sr-only">Name</label>
+                                    <input ng-model="title" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br />
+                                </div>
+                                <div class="modal-footer">
+                                    <button ng-click="editdata(title, list.id)" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 
         </div>
         <div class="btn-group" role="group" aria-labelledby="...">
-            <button ng-click="getdata(prev_url)" class="btn btn-lg btn-success">Prev</button>
-            <button ng-click="getdata(next_url)" class="btn btn-lg btn-success">Next</button>
+            <button ng-click="getdata(prev_url)" class="btn btn-sm btn-default">Prev</button>
+            <button ng-click="getdata(next_url)" class="btn btn-sm btn-default">Next</button>
         </div>
+        <div class="alert alert-danger alert-dismissable" ng-show="msg">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ msg }}</strong>
+        </div>
+
     </div>
+
+
