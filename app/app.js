@@ -8,9 +8,11 @@ var app = angular.module('bucketlist', [
   'bucketlist.signin',
   'bucketlist.signup',
   'bucketlist.home',
-  'bucketlist.view'
-  ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-  .otherwise({redirectTo: '/view'});
-}]);
+  'bucketlist.view',
+  'bucketlist.items'
+]).
+  config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+      .otherwise({ redirectTo: '/view' });
+
+  }]);
