@@ -1,18 +1,23 @@
-<div class="jumbotron" ng-controller="SignUpCtrl">
+<div class="jumbotron">
     <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign up</h2>
-    <label for="inputFirstName" class="sr-only">First Name</label>
-    <input ng-model="first_name" type="text" id="inputFirstName" class="form-control" placeholder="First Name" required=""><br />
-    <label for="inputLastName" class="sr-only">Last Name</label>
-    <input ng-model="last_name" type="text" id="inputLastName" class="form-control" placeholder="Last Name" required=""><br />
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br />
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br />
-    <label for="inputConfirmPasswordName" class="sr-only">First Name</label>
-    <input ng-model="confirm_password" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required=""><br />
-    <center>
-    <button ng-click="postdata(first_name, last_name, email, password, confirm_password)" class="btn btn-lg btn-success" type="submit">Sign up</button>
-    </center>
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <label for="inputFirstName" class="sr-only">First Name</label>
+        <input ng-model="first_name" type="text" id="inputFirstName" class="form-control" placeholder="First Name" required=""><br
+        />
+        <label for="inputLastName" class="sr-only">Last Name</label>
+        <input ng-model="last_name" type="text" id="inputLastName" class="form-control" placeholder="Last Name" required=""><br
+        />
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br
+        />
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br
+        />
+        <label for="inputConfirmPasswordName" class="sr-only">First Name</label>
+        <input ng-model="confirm_password" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password"
+            required=""><br />
+        <center>
+            <button ng-click="postdata(first_name, last_name, email, password, confirm_password)" class="btn btn-lg btn-success" type="submit">Sign up</button>
+        </center>
     </form>
 </div>
