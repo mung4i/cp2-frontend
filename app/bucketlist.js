@@ -86,23 +86,23 @@
                 name: name
             }
             return $http.put(baseUrl + id + "/items/" + item_id + '/', JSON.stringify(data),
-            {
-                headers: { 'Authorization': token }
-            })
-            .then(function (response){
-                return response
-            });
+                {
+                    headers: { 'Authorization': token }
+                })
+                .then(function (response) {
+                    return response
+                });
 
         };
 
-        var deleteBucketlistItems = function (item_id, id){
+        var deleteBucketlistItems = function (item_id, id) {
             return $http.delete(baseUrl + id + "/items/" + item_id + '/',
-            {
-                headers: { 'Authorization': token }
-            })
-            .then(function(response){
-                return response
-            });
+                {
+                    headers: { 'Authorization': token }
+                })
+                .then(function (response) {
+                    return response
+                });
         };
 
 
@@ -115,7 +115,7 @@
             searchBucketlists: searchBucketlists,
             deleteBucketlist: deleteBucketlist,
             editBucketlist: editBucketlist,
-            getBucketlistItems: getBucketlistItems, 
+            getBucketlistItems: getBucketlistItems,
             createBucketlistItems: createBucketlistItems,
             editBucketlistItems: editBucketlistItems,
             deleteBucketlistItems: deleteBucketlistItems
