@@ -14,5 +14,13 @@ var app = angular.module('bucketlist', [
   config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .otherwise({ redirectTo: '/view' });
-
   }]);
+
+app.controller('LogoutCtrl', function($scope, $location, $window){
+  $scope.logout = function(){
+    $window.localStorage.removeItem('Authorization');
+    console.log("Removing Auth");
+    $location.path('/signin');
+  };
+})
+
