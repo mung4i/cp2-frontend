@@ -1,12 +1,10 @@
 <div class="jumbotron">
-    <center><div ng-if="isLoading" class="loader"></div></center>
-
     <div class="alert alert-success alert-dismissable" ng-show="msg">
         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>{{ msg }}</strong>
     </div>
 
-    <div ng-repeat="list in bucketlist | date:'MM/dd/yyyy @ h:mma'" class="panel panel-success">
+    <div ng-repeat="list in bucketlist" class="panel panel-success">
         <div class="input-group">
             <input ng-model="searchparams" type="text" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
@@ -22,8 +20,8 @@
         <div class="panel-body">
             <li class="list-group-item">id: {{ list.id }}</li>
             <li class="list-group-item">title: {{list.title}}</li>
-            <li class="list-group-item">Date created: {{ list.date_created }}</li>
-            <li class="list-group-item">Date modified: {{ list.date_modified | date: "MMM-d-y" }}</li>
+            <li class="list-group-item">Date created: {{list.date_created}}</li>
+            <li class="list-group-item">Date modified: {{list.date_modified}}</li>
         </div>
 
         </table>
