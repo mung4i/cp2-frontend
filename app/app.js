@@ -19,7 +19,6 @@ var app = angular.module('bucketlist', [
 app.controller('LogoutCtrl', function($scope, $location, $window){
   $scope.logout = function(){
     $window.localStorage.removeItem('Authorization');
-    console.log("Removing Auth");
     $location.path('/signin');
   };
 })
