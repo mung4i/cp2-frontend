@@ -10,15 +10,11 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 }])
 
-app.controller('ItemCtrl', function ($scope, $http, $window, $location, $routeParams) {
+app.controller('ItemCtrl', function ($scope, bucketlist_api, $http, $window, $location, $routeParams, $route) {
     var token = $window.localStorage.getItem("Authorization")
     var id = $routeParams.id
 
-    $http({
-        method: 'GET',
-        url: "http://127.0.0.1:5000/v1/bucketlists/" + id + "/items/",
-        headers: { 'Authorization': token }
-    }).then(function (response) {
+    bucketlist_api.getBucketlistItems(id).then(function (response) {
         $scope.bucketlist = response.data
     }, function (response) {
         var status = response.status
@@ -27,27 +23,27 @@ app.controller('ItemCtrl', function ($scope, $http, $window, $location, $routePa
         }
     });
 
-    $scope.editdata = function (name, item_id) {
-        var data = {
-            name: name
-        };
-        $http.put("http://127.0.0.1:5000/v1/bucketlists/" + id + "/items/" + item_id + '/', JSON.stringify(data),
-            {
-                headers: { 'Authorization': token }
-            }).then(function (response) {
+    $scope.postitem = function (name) {
+        bucketlist_api.createBucketlistItems(name, id)
+            .then(function (response) {
                 $scope.msg = response.data.message
-                $location.path('/items/' + id);
-            })
+                $route.reload();
+            });
     }
+
+    $scope.editdata = function (name, item_id) {
+        bucketlist_api.editBucketlistItems(name, item_id, id)
+            .then(function (response) {
+                $route.reload();
+                $scope.msg = response.data.message
+            });
+    }
+
     $scope.deletedata = function (item_id) {
-        console.log("You are deleting")
-        $http({
-            method: 'DELETE',
-            url: "http://127.0.0.1:5000/v1/bucketlists/" + id + "/items/" + item_id + '/',
-            headers: { 'Authorization': token }
-        }).then(function (response) {
-            $scope.msg = "Bucketlist deleted successfully"
-            $location.path('/items/' + id);
-        })
+        bucketlist_api.deleteBucketlistItems(item_id, id)
+            .then(function (response) {
+                $scope.msg = "Bucketlist deleted successfully"
+                $route.reload();
+            })
     }
 })
