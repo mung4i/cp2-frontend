@@ -26,7 +26,6 @@
 
         </table>
         <div class="panel-footer">
-            <button type="button" class="btn btn-sm btn-success" data-target="#createModal" data-toggle="modal"> Create Item </button>
 
             <a href="#items/{{list.id}}" type="button" class="btn btn-sm btn-success"> View Items </a>
 
@@ -34,28 +33,7 @@
 
             <button ng-click="deletedata(list.id)" class="btn btn-sm btn-danger">Delete</button>
 
-            <!-- Create Modal -->
-
-            <div id="createModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Create bucketlist item</h4>
-                        </div>
-                        <div class="modal-body">
-                            <label for="inputName" class="sr-only">Item Name</label>
-                            <input ng-model="name" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br
-                            />
-                        </div>
-                        <div class="modal-footer">
-                            <button ng-click="(postitem(name, list.id))" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Edit Modal -->
             <div id="editModal" class="modal fade" role="dialog">
