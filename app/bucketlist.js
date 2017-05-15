@@ -3,6 +3,18 @@
 
     var bucketlist_api = function ($http, $window) {
         var token = $window.localStorage.getItem("Authorization");
+        var createBucketlist = function (title) {
+            var data = {
+                title: title
+            }
+            return $http.post(baseUrl,JSON.stringify(data),
+                {
+                    headers: { 'Authorization': token }
+                })
+                .then(function (response) {
+                    return response
+                });
+        };
         var getBucketlists = function () {
             return $http.get(baseUrl,
                 {
@@ -109,7 +121,7 @@
 
 
         return {
-
+            createBucketlist: createBucketlist,
             getBucketlists: getBucketlists,
             getNextBucketlist: getNextBucketlist,
             searchBucketlists: searchBucketlists,
