@@ -9,29 +9,17 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }])
 
-app.controller('SignUpCtrl', function ($scope, $http, $location) {
+app.controller('SignUpCtrl', function ($scope, auth_api, $location) {
     $scope.first_name = null;
     $scope.last_name = null;
     $scope.email = null;
     $scope.password = null;
     $scope.confirm_password = null;
     $scope.postdata = function (first_name, last_name, email, password, confirm_password) {
-        var data = {
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            password: password,
-            confirm_password: confirm_password
-        };
-        $http.post("http://127.0.0.1:5000/v1/auth/register", JSON.stringify(data)).then(function (response) {
+        auth_api.createUser(first_name, last_name, email, password, confirm_password).then(function (response) {
             if (response.data) {
                 $scope.msg = response.message;
-                var data = {
-                    email: $scope.email,
-                    password: $scope.password
-
-                };
-                $http.post("http://127.0.0.1:5000/v1/auth/login", JSON.stringify(data)).then(function (response) {
+                auth_api.loginUser($scope.email, $scope.password).then(function (response) {
                     if (response.data) {
                         $scope.msg = response.message;
                         $location.path('/home');
