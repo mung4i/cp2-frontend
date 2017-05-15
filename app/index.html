@@ -15,14 +15,15 @@
 <body>
     <div class="container">
         <div class="header clearfix">
-            <nav class="navbar-default navbar-fixed-top">
+            <nav class="navbar-inverse navbar-fixed-top">
                 <ul class="nav navbar-nav">
-                    <li role="presentation" class="active"><a href="#landing">Home</a></li>
-                    <li role="presentation"><a href="#signin">Sign In</a></li>
-                    <li role="presentation"><a href="#signup">Sign Up</a></li>
+                    <li role="presentation" class="active"><a href="#landing">Bucketlist</a></li>
                     <li role="presentation"><a href="#home">Create</a></li>
-                    <li role="presentation"><a href="#view">View</a></li>
-
+                    <li role="presentation" ng-hide="token"><a href="#view">View</a></li>
+                </ul>
+                <ul ng-controller="LogoutCtrl" class="nav navbar-nav pull-right">
+                    <li role="presentation"><a href="#signin">Sign In</a></li>
+                    <li role="presentation" ng-click="logout()" ng-hide="token"><a>Logout</a></li>
                 </ul>
             </nav>
             <h3>Bucketlists</h3>
@@ -44,9 +45,9 @@
         <script src="components/version/version.js"></script>
         <script src="components/version/version-directive.js"></script>
         <script src="components/version/interpolate-filter.js"></script>
-        <footer class="footer">
-            <p>&copy; Andela 2017</p>
-        </footer>
+        <div class="footer navbar-inverse navbar-fixed-bottom">
+            <p id="footer-text">&copy; Andela 2017</p>
+        </div>
 
     </div>
 </body>
