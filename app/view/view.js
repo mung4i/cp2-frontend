@@ -64,7 +64,7 @@ app.controller('ViewCtrl', function ($scope, bucketlist_api, $http, $location, $
         bucketlist_api.deleteBucketlist(params).then(function (response) {
             $route.reload();
             $scope.msg = "Deleted successfully"
-            
+
         });
     }
 
