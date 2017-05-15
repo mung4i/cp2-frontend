@@ -23,9 +23,13 @@ app.controller('ViewCtrl', function ($scope, $http, $location, $window) {
             $scope.prev_url = response.data.prev_url
         }, function (response) {
             var status = response.status
-            if (status != 200) {
+            if (status == 401) {
+                $location.path('/signin');
+            }
+            else {
                 $location.path('/home');
             }
+
         });
 
     $scope.getdata = function (next_url) {
@@ -98,6 +102,7 @@ app.controller('ViewCtrl', function ($scope, $http, $location, $window) {
                 headers: { 'Authorization': token }
             }).then(function (response) {
                 $scope.msg = response.data.message
+                $route.reload();
             })
     }
 });
