@@ -34,7 +34,7 @@ app.controller('SignUpCtrl', function ($scope, $http, $location) {
                 $http.post("http://127.0.0.1:5000/v1/auth/login", JSON.stringify(data)).then(function (response) {
                     if (response.data) {
                         $scope.msg = response.message;
-                        $location.path('/landing');
+                        $location.path('/home');
                     }
 
                 });
