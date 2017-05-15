@@ -21,7 +21,6 @@ app.controller('ItemCtrl', function ($scope, $http, $window, $location, $routePa
     }).then(function (response) {
         $scope.bucketlist = response.data
     }, function (response) {
-        console.log(response)
         var status = response.status
         if (status != 200) {
             $scope.msg = response.data.message
