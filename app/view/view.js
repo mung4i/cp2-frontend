@@ -12,7 +12,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 
 app.controller('ViewCtrl', function ($scope, bucketlist_api, $http, $location, $window, $route) {
-    var token = $window.localStorage.getItem("Authorization");
 
     bucketlist_api.getBucketlists().then(function (response) {
         $scope.bucketlist = response.data["bucketlists"]
