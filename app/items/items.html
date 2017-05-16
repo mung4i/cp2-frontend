@@ -1,9 +1,18 @@
 <div class="jumbotron">
-    <button type="button" class="btn btn-sm btn-success" data-target="#createModal" data-toggle="modal"> Create Item </button><br />
-    <div class="alert alert-danger alert-dismissable" ng-show="msg">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>{{ msg }}</strong>
+    <div class="well">
+    <button type="button" class="btn btn-sm btn-success" data-target="#createModal" data-toggle="modal">
+         Create Item
+     </button>
     </div>
+    <div class="alert alert-danger alert-dismissable" ng-show="errorMsg">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ errorMsg }}</strong>
+    </div>
+    <div class="alert alert-success alert-dismissable" ng-show="successMsg">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ successMsg }}</strong>
+    </div>
+
 
     <!-- Create Modal -->
 
