@@ -2,14 +2,13 @@
     var baseUrl = "http://127.0.0.1:5000/v1/bucketlists/";
 
     var bucketlist_api = function ($http, $window) {
-        var token = $window.localStorage.getItem("Authorization");
         var createBucketlist = function (title) {
             var data = {
                 title: title
             }
-            return $http.post(baseUrl,JSON.stringify(data),
+            return $http.post(baseUrl, JSON.stringify(data),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -18,7 +17,7 @@
         var getBucketlists = function () {
             return $http.get(baseUrl,
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -28,7 +27,7 @@
         var getNextBucketlist = function (nextUrl) {
             return $http.get(String(nextUrl),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -38,7 +37,7 @@
         var searchBucketlists = function (searchParams) {
             return $http.get(baseUrl + "?q=" + String(searchParams),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -48,7 +47,7 @@
         var deleteBucketlist = function (params) {
             return $http.delete(baseUrl + params,
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -62,7 +61,7 @@
             }
             return $http.put(baseUrl + id, JSON.stringify(data),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -72,7 +71,7 @@
         var getBucketlistItems = function (id) {
             return $http.get(baseUrl + id + "/items/",
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -86,7 +85,7 @@
             }
             return $http.post(baseUrl + id + "/items/", JSON.stringify(data),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -99,7 +98,7 @@
             }
             return $http.put(baseUrl + id + "/items/" + item_id + '/', JSON.stringify(data),
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
@@ -110,7 +109,7 @@
         var deleteBucketlistItems = function (item_id, id) {
             return $http.delete(baseUrl + id + "/items/" + item_id + '/',
                 {
-                    headers: { 'Authorization': token }
+                    headers: { 'Authorization': $window.localStorage.getItem("Authorization") }
                 })
                 .then(function (response) {
                     return response
