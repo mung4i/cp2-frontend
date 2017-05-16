@@ -1,5 +1,5 @@
 (function () {
-    var baseUrl = "http://127.0.0.1:5000/v1/auth/"
+    var baseUrl = "https://cp2-bucketlist.herokuapp.com/v1/auth/"
 
     var auth_api = function ($http, $window) {
         var createUser = function (first_name, last_name, email, password, confirm_password) {
