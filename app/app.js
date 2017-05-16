@@ -16,10 +16,3 @@ var app = angular.module('bucketlist', [
             .otherwise({ redirectTo: '/view' });
     }]);
 
-app.controller('LogoutCtrl', function ($scope, $location, $window) {
-    $scope.logout = function () {
-        $window.localStorage.removeItem('Authorization');
-        $location.path('/signin');
-    };
-})
-
