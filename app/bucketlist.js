@@ -1,5 +1,5 @@
 (function () {
-    var baseUrl = "https://cp2-bucketlist.herokuapp.comgs/v1/bucketlists/";
+    var baseUrl = "https://cp2-bucketlist.herokuapp.comg/v1/bucketlists/";
 
     var bucketlist_api = function ($http, $window) {
         var createBucketlist = function (title) {
