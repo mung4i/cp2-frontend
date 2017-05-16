@@ -9,7 +9,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }])
 
-app.controller('SignInCtrl', function ($scope, auth_api, $location, $window) {
+app.controller('SignInCtrl', function ($scope, auth_api, $location, $window, $route) {
     $scope.postdata = function (email, password) {
         auth_api.loginUser(email, password).then(function (response) {
             if (response) {
@@ -21,9 +21,12 @@ app.controller('SignInCtrl', function ($scope, auth_api, $location, $window) {
             function (response) {
                 $scope.statusval = response.status;
                 $scope.statustext = response.message;
-            }
+            })
+    };
 
-        )
+    $scope.logout = function () {
+        $window.localStorage.removeItem('Authorization');
+        $location.path('/signin');
     };
 
 });
