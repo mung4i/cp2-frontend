@@ -11,7 +11,6 @@ app.config(['$routeProvider', function ($routeProvider) {
 }])
 
 app.controller('ItemCtrl', function ($scope, bucketlist_api, $http, $window, $location, $routeParams, $route) {
-    var token = $window.localStorage.getItem("Authorization")
     var id = $routeParams.id
 
     bucketlist_api.getBucketlistItems(id).then(function (response) {
@@ -19,14 +18,15 @@ app.controller('ItemCtrl', function ($scope, bucketlist_api, $http, $window, $lo
     }, function (response) {
         var status = response.status
         if (status != 200) {
-            $scope.msg = response.data.message
+            $scope.errorMsg = response.data.message
+            console.log($scope.errorMsg)
         }
     });
 
     $scope.postitem = function (name) {
         bucketlist_api.createBucketlistItems(name, id)
             .then(function (response) {
-                $scope.msg = response.data.message
+                $scope.successMsg = response.data.message
                 $route.reload();
             });
     }
@@ -35,14 +35,14 @@ app.controller('ItemCtrl', function ($scope, bucketlist_api, $http, $window, $lo
         bucketlist_api.editBucketlistItems(name, item_id, id)
             .then(function (response) {
                 $route.reload();
-                $scope.msg = response.data.message
+                $scope.successMsg = response.data.message
             });
     }
 
     $scope.deletedata = function (item_id) {
         bucketlist_api.deleteBucketlistItems(item_id, id)
             .then(function (response) {
-                $scope.msg = "Bucketlist deleted successfully"
+                $scope.errorMsg = "Bucketlist deleted successfully"
                 $route.reload();
             })
     }
