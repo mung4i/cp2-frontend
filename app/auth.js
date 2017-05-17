@@ -10,7 +10,7 @@
                 password: password,
                 confirm_password: confirm_password
             }
-            return $http.post(baseUrl + "register", JSON.stringify(data)).then(function (response) {
+            return $http.post(baseUrl + "register/", JSON.stringify(data)).then(function (response) {
                 return response
             });
         };
@@ -20,7 +20,7 @@
                 email: email,
                 password: password
             }
-            return $http.post(baseUrl + "login", JSON.stringify(data)).then(function (response) {
+            return $http.post(baseUrl + "login/", JSON.stringify(data)).then(function (response) {
                 return response
             });
         };
