@@ -10,11 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 }])
 
 app.controller('HomeCtrl', function ($scope, bucketlist_api, $location) {
-    bucketlist_api.getBucketlists().then(function (response) {},
-    function(response){
-        if (response.status == 401) {
-            $location.path('/signin');
-        }
+   
     $scope.postdata = function (title) {
         bucketlist_api.createBucketlist(title).then(function (response) {
             if (response.status == 401) {
