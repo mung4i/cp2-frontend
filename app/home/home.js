@@ -12,13 +12,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.controller('HomeCtrl', function ($scope, bucketlist_api, $location) {
     $scope.postdata = function (title) {
         bucketlist_api.createBucketlist(title).then(function (response) {
-            var status = response.status
-            if (status == 401) {
-                $scope.msg = response.data.message
+            if (response.status == 401) {
+                $scope.errorMsg = response.data.message
                 $location.path('/signin');
             }
             else {
-                $scope.msg = response.data.message;
+                $scope.successMsg = response.data.message;
                 $location.path('/view');
             }
         },
