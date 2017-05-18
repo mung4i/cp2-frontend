@@ -13,6 +13,6 @@ var app = angular.module('bucketlist', [
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .otherwise({ redirectTo: '/view' });
+            .otherwise({ redirectTo: '/home' });
     }]);
 
