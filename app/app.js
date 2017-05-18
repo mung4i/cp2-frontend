@@ -13,6 +13,10 @@ var app = angular.module('bucketlist', [
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider
+            .when('/', {
+                templateUrl: 'landing/landing.html',
+                controller: 'LandingCtrl'
+            })
             .otherwise({ redirectTo: '/home' });
     }]);
 
