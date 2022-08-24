@@ -1,5 +1,5 @@
 (function () {
-    var baseUrl = "http://127.0.0.1:5000/v1/auth/"
+    var baseUrl = "https://cp2-bucketlist.herokuapp.com/v1/auth/"
 
     var auth_api = function ($http, $window) {
         var createUser = function (first_name, last_name, email, password, confirm_password) {
@@ -10,7 +10,7 @@
                 password: password,
                 confirm_password: confirm_password
             }
-            return $http.post(baseUrl + "register", JSON.stringify(data)).then(function (response) {
+            return $http.post(baseUrl + "register/", JSON.stringify(data)).then(function (response) {
                 return response
             });
         };
@@ -20,7 +20,7 @@
                 email: email,
                 password: password
             }
-            return $http.post(baseUrl + "login", JSON.stringify(data)).then(function (response) {
+            return $http.post(baseUrl + "login/", JSON.stringify(data)).then(function (response) {
                 return response
             });
         };
