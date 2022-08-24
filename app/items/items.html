@@ -1,0 +1,93 @@
+<div class="jumbotron">
+    <div class="well">
+    <button type="button" class="btn btn-sm btn-success" data-target="#createModal" data-toggle="modal">
+         Create Item
+     </button>
+    </div>
+    <div class="alert alert-danger alert-dismissable" ng-show="errorMsg">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ errorMsg }}</strong>
+    </div>
+    <div class="alert alert-success alert-dismissable" ng-show="successMsg">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ successMsg }}</strong>
+    </div>
+
+
+    <!-- Create Modal -->
+
+        <div id="createModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create bucketlist item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="inputName" class="sr-only">Item Name</label>
+                        <input ng-model="name" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br
+                        />
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="(postitem(name))" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div ng-repeat="item in bucketlist" class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Bucketlist Items</h3>
+        </div>
+
+        <div class="panel-body">
+            <li class="list-group-item">ID: {{ item.item_id }}</li>
+            <li class="list-group-item">Title: {{ item.name }}</li>
+            <li class="list-group-item">Done: {{ item.done }}</li>
+            <li class="list-group-item">Date created: {{ item.date_created }}</li>
+            <li class="list-group-item">Date modified: {{ item.date_modified }}</li>
+        </div>
+
+        <div class="panel-footer">
+            
+            <button type="button" class="btn btn-sm btn-success" data-target="#editModal-{{item.item_id}}" data-toggle="modal">Edit</button>
+            <button ng-click="deletedata(item.item_id)" type="button" class="btn btn-sm btn-danger">Delete</button>
+
+        </div>
+
+        
+
+
+        <!-- Edit Modal -->
+        <div id="editModal-{{item.item_id}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit bucketlist</h4>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <input ng-model="name" type="text" id="inputName" class="form-control" placeholder="Bucketlist name" required="" autofocus=""><br
+                        />
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="editdata(name, item.item_id)" type="button" class="btn btn-sm btn-success" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

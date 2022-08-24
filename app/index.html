@@ -1,56 +1,58 @@
 <html lang="en" ng-app="bucketlist">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> My bucketlist </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Bucketlist.com </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="header clearfix">
-                <nav class="navbar-default navbar-fixed-top">
-                    <ul class="nav navbar-nav">
-                        <li role="presentation" class="active"><a href="#landing">Home</a></li>
-                        <li role="presentation"><a href="#signin">Sign In</a></li>
-                        <li role="presentation"><a href="#signup">Sign Up</a></li>
-                        <li role="presentation"><a href="#home">Create</a></li>
-                        <li role="presentation"><a href="#view">View</a></li>
-                        
-                    </ul>
-                </nav>
-                <h3>Bucketlists</h3>
-            </div>
-
-            <div ng-view></div>
-
-            <script src="bower_components/angular/angular.js"></script>
-            <script src="bower_components/angular-route/angular-route.js"></script>
-            <script type="text/javascript" src="app.js"></script> 
-            <script type="text/javascript" src="landing/landing.js"></script> 
-            <script src="signin/signin.js"></script>
-            <script src="signup/signup.js"></script>
-            <script src="home/home.js"></script>
-            <script src="view/view.js"></script>
-            <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-                crossorigin="anonymous"></script>-->
-            <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
-            </script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="components/version/version.js"></script>
-            <script src="components/version/version-directive.js"></script>
-            <script src="components/version/interpolate-filter.js"></script>
-            <footer class="footer">
-            <p>&copy; Andela 2017</p>
-            </footer>
-
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <nav class="navbar-inverse navbar-fixed-top">
+                <ul class="nav navbar-nav">
+                    <li role="presentation" class="active"><a href="#/">Bucketlist</a></li>
+                    <li role="presentation"><a href="#home">Create</a></li>
+                    <li role="presentation"><a href="#view">View</a></li>
+                </ul>
+                <ul ng-controller="SignInCtrl" class="nav navbar-nav pull-right">
+                    <li role="presentation"><a href="#signin">Sign In</a></li>
+                    <li role="presentation" ng-click="logout()" ng-hide="token"><a>Logout</a></li>
+                </ul>
+            </nav>
+            <h3>Bucketlists</h3>
         </div>
-    </body>
+
+        <div ng-view></div>
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="auth.js"></script>
+        <script type="text/javascript" src="bucketlist.js"></script>
+        <script type="text/javascript" src="landing/landing.js"></script>
+        <script src="signin/signin.js"></script>
+        <script src="signup/signup.js"></script>
+        <script src="home/home.js"></script>
+        <script src="view/view.js"></script>
+        <script src="items/items.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="components/version/version.js"></script>
+        <script src="components/version/version-directive.js"></script>
+        <script src="components/version/interpolate-filter.js"></script>
+        <div class="footer navbar-inverse navbar-fixed-bottom">
+            <p id="footer-text">&copy; Andela 2017</p>
+        </div>
+
+    </div>
+</body>
+
 </html>
